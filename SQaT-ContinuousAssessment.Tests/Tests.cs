@@ -113,7 +113,7 @@ namespace SQaT_ContinuousAssessment.Tests
         }
 
         //If a negative age is input; output = "your age cannot be negative silly."
-        //location doesn't matter, since it fails at the age checker
+        //location doesn't matter, since it fails at the age check
         [TestCase]
         public void PremiumCalculation_NegativeAge_ThrowsArgumentException()
         {
