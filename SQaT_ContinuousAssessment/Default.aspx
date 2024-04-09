@@ -2,16 +2,18 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <div>
+    <div class="container-fluid card p-3" style="width:24rem">
+    <h1>Insurance Service</h1>
+    <div class="container-fluid">
         <div class="mb-3">
             <label class="form-label" for="age">Age</label>
-            <input class="form-control" name="age" type="number" />
+            <input class="form-control" name="age" type="number"/>
         </div>
 
         <div class="mb-3">
             <label class="form-label" for="location">Location</label>
             <div class="form-check">
-                <input class="form-check-input" id="rural-radio" name="location" type="radio" value="rural" />
+                <input class="form-check-input" id="rural-radio" name="location" type="radio" value="rural"/>
                 <label class="form-check-label" name="rural-radio">Rural</label>
             </div>
 
@@ -21,8 +23,9 @@
             </div>
         </div>
         <div class="text-center">
-            <asp:Button ID="Button1" runat="server" Text="Submit" OnClick="Button1_Click"/>
+            <button class="btn btn-primary" id="submitFormButton">Submit</button>
         </div>
     </div>
+</div>
 
 </asp:Content>
