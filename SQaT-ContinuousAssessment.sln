@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQaT-ContinuousAssessment", "SQaT-ContinuousAssessment\SQaT-ContinuousAssessment.csproj", "{211E15C9-E349-493F-8F38-4EC40F54977E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SQaT-ContinuousAssessment", "SQaT-ContinuousAssessment\SQaT-ContinuousAssessment.csproj", "{211E15C9-E349-493F-8F38-4EC40F54977E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQaT-ContinuousAssessment.Tests", "SQaT-ContinuousAssessment.Tests\SQaT-ContinuousAssessment.Tests.csproj", "{089EE9EF-D07C-4133-909F-AB9F1A98A173}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SQaT-ContinuousAssessment.Tests", "SQaT-ContinuousAssessment.Tests\SQaT-ContinuousAssessment.Tests.csproj", "{089EE9EF-D07C-4133-909F-AB9F1A98A173}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQaT_ContinuousAssessment", "SQaT_ContinuousAssessment\SQaT_ContinuousAssessment.csproj", "{50F86F04-4392-4B1C-BCF1-D12F3EAA04BF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{089EE9EF-D07C-4133-909F-AB9F1A98A173}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{089EE9EF-D07C-4133-909F-AB9F1A98A173}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{089EE9EF-D07C-4133-909F-AB9F1A98A173}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50F86F04-4392-4B1C-BCF1-D12F3EAA04BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50F86F04-4392-4B1C-BCF1-D12F3EAA04BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50F86F04-4392-4B1C-BCF1-D12F3EAA04BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50F86F04-4392-4B1C-BCF1-D12F3EAA04BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
