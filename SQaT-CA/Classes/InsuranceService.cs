@@ -43,7 +43,7 @@ namespace SQaT_CA.Classes
     {
         public double GetDiscount()
         {
-            return 0;
+            return 1;
         }
     }
 }

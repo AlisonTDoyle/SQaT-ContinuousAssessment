@@ -15,6 +15,33 @@ namespace SQaT_CA
     {
 
         /// <summary>
+        /// tbxAge control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbxAge;
+
+        /// <summary>
+        /// rbUrban control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rbUrban;
+
+        /// <summary>
+        /// rbRural control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rbRural;
+
+        /// <summary>
         /// btnSubmit control.
         /// </summary>
         /// <remarks>

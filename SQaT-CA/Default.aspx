@@ -7,23 +7,22 @@
         <div class="container-fluid">
             <div class="mb-3">
                 <label class="form-label" for="age">Age</label>
-                <input class="form-control" name="age" type="number" />
+                <asp:TextBox runat="server" CssClass="form-control" Text="test" ID="tbxAge"/>
             </div>
 
             <div class="mb-3">
                 <label class="form-label" for="location">Location</label>
-                <div class="form-check">
-                    <input class="form-check-input" id="rural-radio" name="location" type="radio" value="rural" />
-                    <label class="form-check-label" name="rural-radio">Rural</label>
+                <div class="mb-1">
+                    <asp:RadioButton ID="rbUrban" runat="server" Text="Urban" GroupName="locationGroup" />
                 </div>
 
-                <div class="form-check">
-                    <input class="form-check-input" id="urban-radio" name="location" type="radio" value="urban" />
-                    <label class="form-check-label" name="urban-radio">Urban</label>
+
+                <div class="mb-3">
+                    <asp:RadioButton ID="rbRural" runat="server" Text="Rural" GroupName="locationGroup" />
                 </div>
             </div>
             <div class="text-center">
-                <asp:Button runat="server" Text="Submit"  ID="btnSubmit" onclick="btnSubmit_Click"/>
+                <asp:Button runat="server" Text="Submit" ID="btnSubmit" OnClick="btnSubmit_Click" CssClass="btn btn-primary" OnClientClick="return false;"/>
             </div>
         </div>
     </div>
