@@ -25,7 +25,7 @@ namespace SQaT_CA
             int age = 0;
 
             // Make sure user has entered a valid age
-            if (int.TryParse(enteredAge, out int test))
+            if ((!String.IsNullOrEmpty(enteredAge)) && (int.TryParse(enteredAge, out int test)))
             {
                 validAge = true;
                 age = test;
@@ -45,10 +45,34 @@ namespace SQaT_CA
         
             if (validAge && validLocation)
             {
+                // Calc insurance premium
                 InsuranceService insuranceService = new InsuranceService();
                 double premium = insuranceService.CalcPremium(age, location);
 
-                result.Text = premium.ToString();
+                // Return result to user
+                //string script = $"alert('{premium.ToString()}');";
+                //ClientScript.RegisterStartupScript(this.GetType(), "alert", script, true);
+
+                Response.Redirect("~/Success.aspx?premium=" + premium);
+            }
+            else
+            {
+                string errorMessage = "";
+
+                // Select error message(s) that fit issue
+                if (!validAge)
+                {
+                    errorMessage += "Please enter your age. ";
+                }
+
+                if (!validLocation)
+                {
+                    errorMessage += "Please select your location. ";
+                }
+
+                // Present error to user
+                string script = $"alert('Error: {errorMessage}');";
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", script, true);
             }
         }
     }
