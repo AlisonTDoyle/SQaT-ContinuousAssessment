@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SQaT-ContinuousAssessment\SQaT-ContinuousAssessment.csproj" />
+    <ProjectReference Include="..\SQaT-CA\SQaT-CA.csproj" />
   </ItemGroup>
 
 </Project>
