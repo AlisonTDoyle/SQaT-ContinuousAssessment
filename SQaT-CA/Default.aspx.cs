@@ -46,7 +46,7 @@ namespace SQaT_CA
             if (validAge && validLocation)
             {
                 // Calc insurance premium
-                InsuranceService insuranceService = new InsuranceService();
+                InsuranceService insuranceService = new InsuranceService(new DiscountService(discount: 1));
                 double premium = insuranceService.CalcPremium(age, location);
 
                 // Return result to user

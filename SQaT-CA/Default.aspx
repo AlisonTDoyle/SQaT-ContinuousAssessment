@@ -8,18 +8,18 @@
             <div class="container-fluid">
                 <div class="mb-3">
                     <label class="form-label" for="age">Age</label>
-                    <asp:TextBox runat="server" CssClass="form-control" ID="tbxAge" />
+                    <asp:TextBox runat="server" CssClass="form-control" ID="tbxAge" name="age"/>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label" for="location">Location</label>
                     <div class="mb-1">
-                        <asp:RadioButton ID="rbUrban" runat="server" Text="Urban" GroupName="locationGroup" />
+                        <asp:RadioButton ID="rbUrban" runat="server" Text="Urban" GroupName="locationGroup" name="location"/>
                     </div>
 
 
                     <div class="mb-3">
-                        <asp:RadioButton ID="rbRural" runat="server" Text="Rural" GroupName="locationGroup" />
+                        <asp:RadioButton ID="rbRural" runat="server" Text="Rural" GroupName="locationGroup" name="location"/>
                     </div>
                 </div>
                 <div class="text-center">

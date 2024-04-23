@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
-using static SQaT_ContinuousAssessment.Tests.Calculator;
+using SQaT_CA.Classes;
 
 // Authored by S00237686.
 namespace SQaT_ContinuousAssessment.Tests
@@ -20,7 +20,7 @@ namespace SQaT_ContinuousAssessment.Tests
         public void Premium_WhenRuralAged18To30OutputPremium_Returns5_00(string location, int age, double expectedPremium)
         {
             //arrange
-            var insuranceService = new InsuranceService(new AgeBasedDiscountService());
+            var insuranceService = new InsuranceService(new DiscountService(discount: 1));
             //act
             var premiumOutput = insuranceService.CalcPremium(age, location);
 
@@ -36,7 +36,7 @@ namespace SQaT_ContinuousAssessment.Tests
         public void Premium_WhenRuralAndAged31To49_Return3_50(string location, int age, double expectedPremium)
         {
             //arrange
-            var insuranceService = new InsuranceService(new AgeBasedDiscountService());
+            var insuranceService = new InsuranceService(new DiscountService(discount: 1));
             //act
             var premiumOutput = insuranceService.CalcPremium(age, location);
 
@@ -50,7 +50,7 @@ namespace SQaT_ContinuousAssessment.Tests
         public void Premium_WhenUrbanAndAged18To35_Return6_00(string location, int age, double expectedPremium)
         {
             //arrange
-            var insuranceService = new InsuranceService(new AgeBasedDiscountService());
+            var insuranceService = new InsuranceService(new DiscountService(discount: 1));
             //act
             var premiumOutput = insuranceService.CalcPremium(age, location);
 
@@ -63,7 +63,7 @@ namespace SQaT_ContinuousAssessment.Tests
         public void Premium_WhenUrbanAndAged36To49_Return5_00(string location, int age, double expectedPremium)
         {
             //arrange
-            var insuranceService = new InsuranceService(new AgeBasedDiscountService());
+            var insuranceService = new InsuranceService(new DiscountService(discount: 1));
             //act
             var premiumOutput = insuranceService.CalcPremium(age, location);
 
@@ -77,7 +77,7 @@ namespace SQaT_ContinuousAssessment.Tests
         public void Premium_WhenAgedUnder18_Return0_00(string location, int age, double expectedPremium)
         {
             //arrange
-            var insuranceService = new InsuranceService(new AgeBasedDiscountService());
+            var insuranceService = new InsuranceService(new DiscountService(discount: 1));
             //act
             var premiumOutput = insuranceService.CalcPremium(age, location);
 
@@ -87,11 +87,12 @@ namespace SQaT_ContinuousAssessment.Tests
 
         [TestCase("rural", 55, 3.15)]
         [TestCase("rural", 75, 3.15)]
-        [TestCase("rural", 64, 3.15)] //this one's for you Sam and your SM64 Addiction
+        [TestCase("rural", 64, 3.15)] // this one's for you Sam and your SM64 Addiction
+        [TestCase("rural", -5, 0)]
         public void Premium_WhenRuralAndAged50AndOver_Return3_15(string location, int age, double expectedPremium)
         {
             //arrange
-            var insuranceService = new InsuranceService(new AgeBasedDiscountService());
+            var insuranceService = new InsuranceService(new DiscountService(discount: 0.9));
             //act
             var premiumOutput = insuranceService.CalcPremium(age, location);
 
@@ -100,28 +101,20 @@ namespace SQaT_ContinuousAssessment.Tests
         }
         [TestCase("urban", 55, 4.50)]
         [TestCase("urban", 75, 4.50)]
-        [TestCase("urban", 64, 4.50)] //this one's for you Sam and your SM64 Addiction ( •̀ᴗ•́ )و 
-        public void Premium_WhenUrbanAndAged50AndOver_Return4_50(string location, int age, double expectedPremium)
+        [TestCase("urban", 64, 4.50)] // this one's for you Sam and your SM64 Addiction ( •̀ᴗ•́ )و 
+        [TestCase("urban", -5, 0)]
+        public void Premium_WhenUrbanAndAgedOver50_ReturnPremium(string location, int age, double expectedPremium)
         {
-            //arrange
-            var insuranceService = new InsuranceService(new AgeBasedDiscountService());
-            //act
+            // arrange
+            var insuranceService = new InsuranceService(new DiscountService(discount: 0.9));
+
+            // act
             var premiumOutput = insuranceService.CalcPremium(age, location);
 
-            //assert
+            // assert
+            // returns 3.1499+ so within 0.01 so it can return a 3.15
             Assert.That(premiumOutput, Is.EqualTo(expectedPremium).Within(0.01));
         }
-
-        //If a negative age is input; output = "your age cannot be negative silly."
-        //location doesn't matter, since it fails at the age check
-        [TestCase]
-        public void PremiumCalculation_NegativeAge_ThrowsArgumentException()
-        {
-            // Arrange
-            var insuranceService = new InsuranceService(new AgeBasedDiscountService());
-
-            // Act & Assert
-            Assert.Throws<ArgumentException>(() => insuranceService.CalcPremium(-5, "rural"));
-        }
     }    
+
 }

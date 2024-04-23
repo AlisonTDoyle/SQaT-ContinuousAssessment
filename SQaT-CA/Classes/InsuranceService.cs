@@ -7,43 +7,57 @@ namespace SQaT_CA.Classes
 {
     public class InsuranceService
     {
+        // Properties
+        private readonly DiscountService discountService;
+
+        // Constructors
+        public InsuranceService(DiscountService ds)
+        {
+            discountService = ds;
+        }
+
+        // Methods
         public double CalcPremium(int age, string location)
         {
-            double premium;
+            // Variables
+            double premium = 0;
 
+            // Check location
             if (location == "rural")
-                if ((age >= 18) && (age < 30))
+            {
+                // Check age
+                if ((age >= 18) && (age <= 30))
+                {
                     premium = 5.0;
-                else
-                    if (age >= 31)
-                    premium = 2.50;
-                else
-                    premium = 0.0;
-            else
-                if (location == "urban")
+                }
+                else if (age >= 31)
+                {
+                    premium = 3.50;
+                }
+            }
+            else if (location == "urban")
+            {
+                // Check age
                 if ((age >= 18) && (age <= 35))
+                {
                     premium = 6.0;
-                else
-                   if (age >= 36)
+                }
+                else if (age >= 36)
+                {
                     premium = 5.0;
-                else
-                    premium = 0.0;
-            else
-                premium = 0.0;
 
-            DiscountService ds = new DiscountService();
-            double discount = ds.GetDiscount();
+                }
+            }
+
+            // Apply discount if applicable
+            double discount = discountService.GetDiscount();
             if (age >= 50)
+            {
                 premium = premium * discount;
+            }
+
             return premium;
         }
     }
 
-    public class DiscountService
-    {
-        public double GetDiscount()
-        {
-            return 1;
-        }
-    }
 }
